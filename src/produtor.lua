@@ -1,4 +1,4 @@
-require("buffer")
+local Buffer = require("buffer")
 
 Producao = {
     item = 0
@@ -19,8 +19,9 @@ function Producao:produtor()
 
         Buffer:add(item) --adiciona na espera/carrinho
 
-        print("Produzido: " .. item)
-        os.execute("sleep 1")
+        local fila_str = "[" .. table.concat(Buffer.queue, ", ") .. "]"
+        print("[Produtor] produziu  " .. string.format("%3d", item) .. " | buffer=" .. fila_str)
+        coroutine.yield()
 
     end
 end

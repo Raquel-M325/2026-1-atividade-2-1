@@ -21,10 +21,10 @@ end
 function Buffer:remove()
     if #self.queue > 0 then
         local item = table.remove(self.queue, 1) -- Remove o primeiro da fila (FIFO)
-        print("[Buffer] Item " .. item .. " consumido. Total atual: " .. #self.queue .. "/" .. self.max_size)
+        --print("[Buffer] Item " .. item .. " consumido. Total atual: " .. #self.queue .. "/" .. self.max_size)
         return item
     else
-        print("[Buffer Alerta] Buffer VAZIO! Nada para consumir.")
+        --print("[Buffer Alerta] Buffer VAZIO! Nada para consumir.")
         return nil
     end
 end

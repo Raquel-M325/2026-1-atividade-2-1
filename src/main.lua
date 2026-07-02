@@ -13,25 +13,31 @@ local co_consumidor = coroutine.create(function()
     Consumo:consumidor()
 end)
 
+math.randomseed(os.time())
+
 print("Iniciando Exemplo 3 - Produtor e Consumidor...")
 print("Pressione Ctrl+C para encerrar.\n")
 
-for ciclo = 1, 15 do 
+for ciclo = 1, 30 do
     print("--- Ciclo " .. ciclo .. " ---")
     
-    if #Buffer.queue < Buffer.max_size then
-        coroutine.resume(co_produtor)
+    local sorteio = math.random(1, 10)
+    
+    if sorteio <= 6 then
+        if #Buffer.queue < Buffer.max_size then
+            assert(coroutine.resume(co_produtor))
+        else
+            print("[Semáforo] Produtor bloqueado. O buffer está cheio.")
+        end
     else
-        print("[Semáforo] Produtor bloqueado. O buffer está cheio.")
+        if #Buffer.queue > 0 then
+            assert(coroutine.resume(co_consumidor))
+        else
+            print("[Semáforo] Consumidor bloqueado. O buffer está vazio.")
+        end
     end
     
-    if #Buffer.queue > 0 then
-        coroutine.resume(co_consumidor)
-    else
-        print("[Semáforo] Consumidor bloqueado. O buffer está vazio.")
-    end
-    
-    os.execute("sleep 1")
+    os.execute("sleep 0.5")
     print("")
 end
 
