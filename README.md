@@ -42,6 +42,7 @@ Sequência de slides
 - [Informações sobres as linguagenes](https://github.com/sistemas-operacionais/2026-1-atividade-1-2/blob/main/linguagens.md).
 - by copilot [Tutorial de cliente/servidor echo com Docker Compose](https://github.com/sistemas-operacionais/2026-1-atividade-1-2/blob/main/docker-compose-echo-python/README.md)
 - by copilot [exemplo de sala sobre semáforo em python](https://github.com/sistemas-operacionais/python-semaforos)
+- [link da aprensatação](https://www.canva.com/design/DAHOMby-TRQ/1WvpbFerff7YrU_NQRlTyA/edit)
 
 | Linguagens | Integrantes |
 | ---------- | ----------- |
